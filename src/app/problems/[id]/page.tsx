@@ -1,4 +1,6 @@
 import { notFound } from 'next/navigation'
+
+export const dynamic = 'force-dynamic'
 import { supabase } from '@/lib/supabase'
 import MathText from '@/components/MathText'
 import CommentForm from '@/components/CommentForm'

@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 
+export const dynamic = 'force-dynamic'
+
 const statusLabel = {
   unsolved: { label: '未解決', className: 'bg-red-100 text-red-800' },
   unclear: { label: '状況不明', className: 'bg-yellow-100 text-yellow-800' },
