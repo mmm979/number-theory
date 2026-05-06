@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase'
 import MathText from '@/components/MathText'
 import CommentForm from '@/components/CommentForm'
 import StatusEditor from '@/components/StatusEditor'
+import DeleteButton from '@/components/DeleteButton'
 
 export default async function ProblemPage(props: PageProps<'/problems/[id]'>) {
   const { id } = await props.params
@@ -25,9 +26,12 @@ export default async function ProblemPage(props: PageProps<'/problems/[id]'>) {
             <StatusEditor problemId={problem.id} current={problem.status as 'unsolved' | 'unclear' | 'solved'} />
           </div>
         </div>
-        <p className="text-xs text-gray-400 mb-6">
-          {new Date(problem.created_at).toLocaleDateString('ja-JP')}
-        </p>
+        <div className="flex items-center justify-between mb-6">
+          <p className="text-xs text-gray-400">
+            {new Date(problem.created_at).toLocaleDateString('ja-JP')}
+          </p>
+          <DeleteButton problemId={problem.id} />
+        </div>
         <MathText>{problem.description}</MathText>
       </div>
 
